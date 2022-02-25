@@ -44,17 +44,18 @@ class Solution1(object):
         :rtype: bool
         """
         l = 1
-        h = num
+        r = num
         
-
-        while l >= h :
-            mid = (h+l-1)/2
-            if mid**2 <= num:
+        while (l <= r):
+            mid = l + (r-l) // 2
+            if mid*mid == num:
+                return True
+            elif mid * mid < num:
                 l = mid + 1
-            else: 
-                h = mid
-        
-        return l**2 == num
+            else:
+                r = mid - 1
+            
+        return False
 
 """
 Solution
